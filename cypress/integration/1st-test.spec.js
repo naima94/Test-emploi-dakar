@@ -8,6 +8,7 @@ describe('emploi-dakar test', () => {
         cy.visit('https://www.emploidakar.com/')
 
         cy.get('.text-inner > .button').click()
+        // Go to job page
         cy.get('#menu-item-125914 > .nav-top-link').click()
         cy.get('li.job_listing').first().click()
         cy.contains('Postuler')
