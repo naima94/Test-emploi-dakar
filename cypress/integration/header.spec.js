@@ -76,9 +76,6 @@ describe('Header UI test', () => {
 
     it('Publier une Offre d’Emploi visibility', () => {
         cy.contains('Publier une Offre d’Emploi').should('be.visible')
-        //Publier une Offre d’Emploi hover
-        //cy.get('.header-nav > .header-button-2 > .header-button > .button').first().realHover()
-        //.should('have.css', 'color', 'rgb(0,115,177)') //'
     })
 
     // ----------- HEADER FONCTIONNALITY -----------
@@ -128,10 +125,14 @@ describe('Header UI test', () => {
         cy.url().should('include', '=developpeur')
     })
 
-    it('Offres d’Emploi link fonctionnality', () => {
-        cy.get('#menu-item-125914 > .nav-top-link').click()
-        cy.url().should('eq', 'https://www.emploidakar.com/offres-demploi-au-senegal/')
+    it('Logo fontionnality', () => {
+        cy.get('.header_logo').click()
+        //Should return to the home page
+        cy.url().should('eq', 'https://www.emploidakar.com/')
+    })
 
+    it('Offres d’Emploi link fonctionnality', () => {
+        cy.get('#menu-item-125914 > .nav-top-link').should("have.attr", "href", "https://www.emploidakar.com/offres-demploi-au-senegal/")
     })
 
     it('Recruters links fonctionnality', () => {
@@ -174,6 +175,20 @@ describe('Header UI test', () => {
         cy.contains('Recrutement Afrique').should("have.attr", "href", "https://www.emploidakar.com/offre-d-emploi-afrique/")
     })
 
+    it('Trouver une Formation links fonctionnality', () => {
+        cy.get('#menu-item-133975 > .nav-top-link').should("have.attr", "href", "https://www.emploidakar.com/formation-en-ligne/")
 
+        //Trouver une Formation hover
+        cy.get('#menu-item-133975 > .nav-top-link').realHover()
 
+        cy.contains('Formations en Français').should("have.attr", "href", "https://www.emploidakar.com/formation-en-ligne/")
+
+        cy.contains('Free Online Courses').should("have.attr", "href", "https://www.emploidakar.com/free-online-courses/")
+
+        cy.contains('Certifications').should("have.attr", "href", "https://www.emploidakar.com/certifications/")
+    })
+
+    it('Publier une Offre d’Emploi fonctionnality', () => {
+        cy.get('.header-nav > .header-button-2 > .header-button > .button').should("have.attr", "href", "https://www.emploidakar.com/pourquoi-choisir-emploi-dakar/")
+    })
 })
