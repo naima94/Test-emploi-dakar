@@ -1,10 +1,13 @@
 /// <reference types="cypress" />
 
 describe('Home page UI test', () => {
-    // ---------------- HEADER TEST ----------------
     it('Load home page', () => {
         cy.visit('https://www.emploidakar.com/')
     })
+
+    // ---------------- HEADER TEST ----------------
+
+    // ----------- HEADER VISIBILITY -----------
 
     it('Logo visibility', () => {
         cy.get('.header_logo').should('be.visible')
@@ -77,8 +80,50 @@ describe('Home page UI test', () => {
         //.should('have.css', 'color', 'rgb(0,115,177)') //'
     })
 
+    // ----------- HEADER FONCTIONNALITY -----------
 
-    it(' visibility', () => {
+    it('Logo fontionnality', () => {
+        cy.get('.header_logo').click()
+        //Should return to the home page
+        cy.url().should('eq', 'https://www.emploidakar.com/')
+    })
+
+    it('Offers fontionnality', () => {
+        //Tarifs de publication
+        cy.get('#menu-item-136368 > .nav-top-link').click()
+        cy.url().should('eq', 'https://www.emploidakar.com/tarifs-et-conditions-de-publication-des-offres-demploi/')
+
+        //Rédaction de CV Professionnel
+        cy.get('#menu-item-145436 > .nav-top-link').click()
+        cy.url().should('eq', 'https://www.emploidakar.com/service-de-redaction-de-cv-professionnel/')
+
+        //Confiez-nous votre recrutement
+        cy.get('#menu-item-138412 > .nav-top-link').click()
+        cy.url().should('eq', 'https://www.emploidakar.com/confiez-nous-votre-recrutement/')
+    })
+
+    it('Social links should refer to social pages', () => {
+        // cy.get('.social-icons .follow-icons > a:nth-child(1)')
+        //     .should('have.attr', 'href').and('include', 'facebook.com/EmploiDakarCom')
+        //     .then((href) => {
+        //         cy.visit(href)
+        //     })
+
+        cy.get('[data-label="Facebook"]').should("have.attr", "href", "https://www.facebook.com/EmploiDakarCom/")
+
+        cy.get('[data-label="Instagram"]').should("have.attr", "href", "https://www.instagram.com/emploidakar/")
+
+        cy.get('[data-label="Twitter"]').should("have.attr", "href", "https://twitter.com/emploidakar")
+
+        cy.get('[data-label="E-mail"]').should("have.attr", "href", "mailto:contact@emploidakar.com")
+
+        cy.get('[data-label="LinkedIn"]').should("have.attr", "href", "https://www.linkedin.com/company/11769737/")
+
+        cy.get('[data-label="YouTube"]').should("have.attr", "href", "https://www.youtube.com/channel/UC6LTPYzvUlUk31ShE2Wei1g")
+
+    })
+
+    it(' fontionnality', () => {
 
     })
 
