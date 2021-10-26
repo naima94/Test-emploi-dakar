@@ -135,26 +135,44 @@ describe('Header UI test', () => {
     })
 
     it('Recruters links fonctionnality', () => {
-        cy.get('#menu-item-11059 > .nav-top-link').click()
-        cy.url().should('eq', 'https://www.emploidakar.com/publier-une-offre-demploi/')
+        cy.get('#menu-item-11059 > .nav-top-link').should("have.attr", "href", "https://www.emploidakar.com/publier-une-offre-demploi/")
 
-        //Recruteurs hover
+        //Retruteurs hover
         cy.get('#menu-item-11059 > .nav-top-link').realHover()
 
-        cy.contains('Publier une Offre').click()
-        cy.url().should('eq', 'https://www.emploidakar.com/publier-une-offre-demploi/')
+        cy.contains('Publier une Offre').should("have.attr", "href", "https://www.emploidakar.com/publier-une-offre-demploi/")
 
-        // cy.contains('Publier une Offre').should('be.visible')
-        // cy.contains('Gérer mes offres').should('be.visible')
-        // cy.contains('Accéder à la CVthèque').should('be.visible')
-        // cy.contains('Packs & Tarifs de publication').should('be.visible')
+        cy.contains('Gérer mes offres').should("have.attr", "href", "https://www.emploidakar.com/gerer-mes-offres/")
+
+        cy.contains('Accéder à la CVthèque').should("have.attr", "href", "https://www.emploidakar.com/acceder-a-la-cvtheque-tous-les-cvs/")
+
+        cy.contains('Packs & Tarifs de publication').should("have.attr", "href", "https://www.emploidakar.com/tarifs-et-conditions-de-publication-des-offres-demploi/")
+
     })
 
-    // //Return to home page
-    // it('Return to home page', () => {
-    //     cy.get('.header_logo').click()
-    // })
 
+    it('Candidats links fonctionnality', () => {
+        cy.get('#menu-item-699 > .nav-top-link').should("have.attr", "href", "https://www.emploidakar.com/deposer-mon-cv-provoquer-les-recruteurs/")
+
+        //Candidats hover
+        cy.get('#menu-item-699 > .nav-top-link').realHover()
+
+        cy.contains('Modèles de CV').should("have.attr", "href", "https://www.emploidakar.com/exemple-de-cv/")
+
+        cy.contains('Lettres de Motivation').should("have.attr", "href", "https://www.emploidakar.com/modeles-lettres-de-motivation/")
+
+        cy.contains('Mes Alertes Emploi').should("have.attr", "href", "https://www.emploidakar.com/gerer-mes-alertes-emploi-notifications/")
+
+        cy.contains('Actualités Emploi').should("have.attr", "href", "https://www.emploidakar.com/actualites/")
+
+        cy.contains('Candidature Spontanée').should("have.attr", "href", "https://www.emploidakar.com/candidature-spontanee-senegal/")
+
+        cy.contains('Bourses & Concours').should("have.attr", "href", "https://www.emploidakar.com/stages-bourses-detudes-et-concours/")
+
+        cy.contains('Entrepreneuriat').should("have.attr", "href", "https://www.emploidakar.com/entrepreneuriat/")
+
+        cy.contains('Recrutement Afrique').should("have.attr", "href", "https://www.emploidakar.com/offre-d-emploi-afrique/")
+    })
 
 
 
