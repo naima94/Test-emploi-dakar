@@ -95,4 +95,30 @@ describe('Footer UI test', () => {
             .should("have.attr", "href", "https://www.emploidakar.com/stages-bourses-detudes-et-concours/")
     })
 
+    //
+    it('Publier une Offre d’Emploi link', () => {
+        cy.contains('Publier une Offre d’Emploi').should('be.visible')
+            .should("have.attr", "href", "https://www.emploidakar.com/publier-une-offre-demploi/")
+    })
+
+    it('Actualités Emploi link', () => {
+        cy.contains('Actualités Emploi').should('be.visible')
+            .should("have.attr", "href", "https://www.emploidakar.com/actualites/")
+    })
+
+    it('Formation link', () => {
+        cy.contains('Formation').should('be.visible')
+            .should("have.attr", "href", "https://www.emploidakar.com/formation-en-ligne/")
+    })
+
+    it('Fiches Métier link', () => {
+        cy.contains('Fiches Métier').should('be.visible')
+            .should("have.attr", "href", "https://www.emploidakar.com/fiches-metier/")
+    })
+
+    it('Assistance et Conseils link', () => {
+        cy.contains('Assistance et Conseils').should('be.visible')
+            .should("have.attr", "href", "https://www.emploidakar.com/assistance-et-conseils/")
+    })
+
 })
