@@ -20,12 +20,84 @@ describe('Home page', () => {
 
     it('Hero button visibility', () => {
         cy.get('.text-inner > .button').should('be.visible')
-        cy.get('.text-inner > .button > span').should('have.text', 'Voir toutes les offres d’emploi')
+        cy.get('.text-inner > .button > span').should('have.text', "Voir toutes les offres d'emploi")
     })
 
     // ----------- HERO FONCTIONNALITY -----------
 
-    it('Banner image fontionnality', () => {
+    it('Hero button fonctionnality', () => {
+        cy.get('.text-inner > .button').should("have.attr", "href", "https://www.emploidakar.com/offres-demploi-au-senegal/")
+    })
 
+    // ---------------- CANDIDATES SECTION TEST ----------------------
+
+    it('Candidates section title', () => {
+        cy.get(':nth-child(2) > .section-title > .section-title-main').scrollIntoView().should('be.visible')
+            .should('have.text', "Optimisez vos chances de recrutement")
+    })
+
+    it('Candidates section text', () => {
+        cy.get('.sub-heading').should('be.visible')
+            .should('have.text', "Décrochez jusqu’à trois fois plus d’entretiens d’embauche avec nos services totalement gratuits.")
+    })
+
+    //          Link 1
+    it('Postulez en un clic container', () => {
+        cy.get('.col-inner > .plain').eq(0).should('be.visible')
+            .should("have.attr", "href", "https://www.emploidakar.com/offres-demploi-au-senegal/")
+    })
+
+    it('Postulez en un clic img visibility', () => {
+        cy.get('.icon-inner > img').eq(0).should('be.visible')
+    })
+
+    it('Postulez en un clic visibility', () => {
+        cy.get('#col-580897933 > .col-inner > .plain > .icon-box > .icon-box-text > .uppercase').should('be.visible')
+            .should('have.text', "Postulez en un clic")
+    })
+
+    it('Postulez en un clic text visibility', () => {
+        cy.get('#col-580897933 > .col-inner > .plain > .icon-box > .icon-box-text > .fourfeature-item > .text').should('be.visible')
+            .should('have.text', "Trouvez le poste qui vous correspond et postulez en un clic gratuitement avec votre CV en ligne.")
+    })
+
+    //          Link 2
+    it('Soyez le Premier container', () => {
+        cy.get('.col-inner > .plain').eq(1).should('be.visible')
+            .should("have.attr", "href", "https://www.emploidakar.com/gerer-mes-alertes-emploi-notifications/")
+    })
+
+    it('Soyez le Premier img visibility', () => {
+        cy.get('.icon-inner > img').eq(1).should('be.visible')
+    })
+
+    it('Soyez le Premier visibility', () => {
+        cy.get('#col-1443108112 > .col-inner > .plain > .icon-box > .icon-box-text > .uppercase').should('be.visible')
+            .should('have.text', "Soyez le Premier")
+    })
+
+    it('Soyez le Premier text visibility', () => {
+        cy.get('.item-2 > .text').should('be.visible')
+            .should('have.text', "Recevez les meilleures opportunités par mail selon la fréquence que vous avez choisie.")
+    })
+
+    //          Link 3
+    it('Faites-vous chasser container', () => {
+        cy.get('.col-inner > .plain').eq(2).should('be.visible')
+            .should("have.attr", "href", "https://www.emploidakar.com/deposer-mon-cv-provoquer-les-recruteurs/")
+    })
+
+    it('Faites-vous chasser img visibility', () => {
+        cy.get('.icon-inner > img').eq(2).should('be.visible')
+    })
+
+    it('Faites-vous chasser visibility', () => {
+        cy.get('#col-1268517327 > .col-inner > .plain > .icon-box > .icon-box-text > .uppercase').should('be.visible')
+            .should('have.text', "Faites-vous chasser")
+    })
+
+    it('Faites-vous chasser text visibility', () => {
+        cy.get('.icon-box-text > p').should('be.visible')
+            .should('have.text', "Déposez gratuitement votre CV et attirez l’attention de centaines de recruteurs de la plateforme.")
     })
 })
