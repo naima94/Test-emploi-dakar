@@ -141,7 +141,7 @@ describe('Home page', () => {
     })
 
     it('At least 1 Actualités Emploi', () => {
-        cy.get('.large-columns-3 > :nth-child(1)').should('be.visible')
+        cy.get('.large-columns-3').should('be.visible')
     })
 
     // ---------------- NEWSLETTER SECTION TEST ----------------------

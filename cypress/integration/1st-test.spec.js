@@ -1,7 +1,5 @@
 /// <reference types="cypress" />
 
-
-
 describe('emploi-dakar test', () => {
     it('Job offer test', () => {
         // Go to the web site home page
