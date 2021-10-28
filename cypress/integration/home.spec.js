@@ -100,4 +100,61 @@ describe('Home page', () => {
         cy.get('.icon-box-text > p').should('be.visible')
             .should('have.text', "Déposez gratuitement votre CV et attirez l’attention de centaines de recruteurs de la plateforme.")
     })
+
+    // ---------------- RECRUTEURS SECTION TEST ----------------------
+
+    it('Recruiters section title', () => {
+        cy.get('#content > :nth-child(5)').scrollIntoView().should('be.visible')
+            .should('have.text', "Publiez vos offres d'emploi sur le site de recrutement n°1 au Sénégal")
+    })
+
+    it('Recruiters section img visibility', () => {
+        cy.get('.attachment-large').should('be.visible')
+    })
+
+    it('Recruiters section subtitle visibility', () => {
+        cy.get('.col-inner > h3 > span').should('be.visible')
+            .should('have.text', "Vous êtes à la recherche de votre prochaine recrue ?")
+    })
+
+    it('Recruiters section text visibility', () => {
+        cy.get('.cta-left > p').should('be.visible')
+            .should('have.text', "Laissez Emploi Dakar vous trouver les talents les plus pertinents pour vos projets. Gérez vos offres d’emploi, triez les candidature reçues, pré-sélectionnez les meilleurs CV, contactez les candidats directement depuis votre tableau de bord.")
+    })
+
+    it('Recruiters section button', () => {
+        cy.get('#col-161245470 > .col-inner > .button').should('be.visible')
+            .should("have.attr", "href", "https://www.emploidakar.com/pourquoi-choisir-emploi-dakar/")
+        cy.get('#col-161245470 > .col-inner > .button > span').should('have.text', "Publier une Offre d'Emploi")
+    })
+
+    // ---------------- ACTUALITES EMPLOI SECTION TEST ----------------------
+
+    it('Actualités Emploi section title visibility', () => {
+        cy.get(':nth-child(8) > .section-title > .section-title-main').scrollIntoView().should('be.visible')
+            .should('have.text', "Actualités Emploi")
+    })
+
+    it('Actualités Emploi section subtitle visibility', () => {
+        cy.get('#content > :nth-child(9)').should('be.visible')
+            .should('have.text', "Retrouvez les dernières actualités et tendances Emploi, Recrutement au Sénégal.")
+    })
+
+    it('At least 1 Actualités Emploi', () => {
+        cy.get('.large-columns-3 > :nth-child(1)').should('be.visible')
+    })
+
+    // ---------------- NEWSLETTER SECTION TEST ----------------------
+
+    it('Abonnement section text visibility', () => {
+        cy.get('.col-inner > p').scrollIntoView().should('be.visible')
+            .should('have.text', "Abonnez-vous pour recevoir les meilleures opportunités d’emploi, stages, formations et financement par mail.")
+    })
+
+    it('Newsletter section button', () => {
+        cy.get('#col-95580342 > .col-inner > .button').should('be.visible')
+            .should("have.attr", "href", "https://www.emploidakar.com/newsletter-2/")
+        cy.get('#col-95580342 > .col-inner > .button > span').should('have.text', "Je m'abonne")
+    })
+
 })
