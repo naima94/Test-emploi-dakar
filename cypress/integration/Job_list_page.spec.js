@@ -30,8 +30,27 @@ describe('Jobs list page test', () => {
             .type('developpeur{enter}')
     })
 
+    //Go to job list page
+    it('Go to job list page', () => {
+        cy.get('#menu-item-125914 > .nav-top-link').click()
+    })
 
+    //Check location filter
+    it('Location filter', () => {
+        cy.get('#search_location').should('be.visible')
+            .type('dakar{enter}')
+    })
 
+    //Go to job list page
+    it('Go to job list page', () => {
+        cy.get('#menu-item-125914 > .nav-top-link').click()
+    })
+
+    //Check categories filter
+    it('Categorie filter', () => {
+        cy.get('#search_location').should('be.visible')
+            .type('dakar{enter}')
+    })
 
     //Return to job list page
     it('Reset page link', () => {
