@@ -24,6 +24,11 @@ describe('Jobs list page test', () => {
             .should('have.text', "Toutes les Offres d’Emploi à Dakar et partout au Sénégal")
     })
 
+    //Check if at least 1 job is posted
+    it('At least 1 job is posted', () => {
+        cy.get('.job_listings> li').should('be.visible')
+    })
+
     //Check key words filter
     it('Key words filter', () => {
         cy.get('#search_keywords').should('be.visible')
@@ -85,9 +90,19 @@ describe('Jobs list page test', () => {
         cy.reload()
     })
 
-    //Check if at least 1 job is posted
-    it('At least 1 job is posted', () => {
-        cy.get('.job_listings> li').should('be.visible')
+    //Check job type filters
+    it('Job type filters', () => {
+        cy.get("[type='checkbox']").should('be.checked')
+        //Uncheck
+        cy.get("[type='checkbox']").uncheck()
+
+        //Check if there is no job
+        cy.get('.job_listings> li').should('not.be.visible')
+    })
+
+    //Reload page
+    it('Reload page', () => {
+        cy.reload()
     })
 
     //Check if the 1rst job title is visible
