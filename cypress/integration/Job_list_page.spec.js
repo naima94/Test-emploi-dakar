@@ -30,9 +30,9 @@ describe('Jobs list page test', () => {
             .type('developpeur{enter}')
     })
 
-    //Go to job list page
-    it('Go to job list page', () => {
-        cy.get('#menu-item-125914 > .nav-top-link').click()
+    //Reload page
+    it('Reload page', () => {
+        cy.reload()
     })
 
     //Check location filter
@@ -41,35 +41,48 @@ describe('Jobs list page test', () => {
             .type('dakar{enter}')
     })
 
-    //Go to job list page
-    it('Go to job list page', () => {
-        cy.get('#menu-item-125914 > .nav-top-link').click()
+    //Reload page
+    it('Reload page', () => {
+        cy.reload()
     })
 
     //Check categories filter
     it('Categorie filter', () => {
-        cy.get('#search_location').should('be.visible')
-            .type('dakar{enter}')
+        //Select search field
+        cy.get('.select2-search__field').should('be.visible').click()
+
+        //Check the first option 
+        cy.get('.select2-results__option').first().should('have.text', 'Accueil - Réception')
+
+        //Check the last option
+        cy.get('.select2-results__option').last().should('have.text', 'Transport - Logistique')
+
+
     })
 
-    //Return to job list page
-    it('Reset page link', () => {
+    // //Return to job list page
+    // it('Reset page link', () => {
 
-        cy.get('body')
-            .then(($body) => {
-                const result = cy.get('.job_filters > span').should('include', 'Recherche terminée.')
+    //     cy.get('body')
+    //         .then(($body) => {
+    //             const result = cy.get('.job_filters > span').should('include', 'Recherche terminée.')
 
-                // If result found, Reset page 
-                if (result = true) {
-                    cy.get('.reset').click()
-                    cy.url().should('eq', 'https://www.emploidakar.com/offres-demploi-au-senegal/')
-                }
+    //             // If result found, Reset page 
+    //             if (result = true) {
+    //                 cy.get('.reset').click()
+    //                 cy.url().should('eq', 'https://www.emploidakar.com/offres-demploi-au-senegal/')
+    //             }
 
-                // else (no result found), Got to job list page
-                else {
-                    cy.get('#menu-item-125914 > .nav-top-link').click()
-                }
-            })
+    //             // else (no result found), Got to job list page
+    //             else {
+    //                 cy.get('#menu-item-125914 > .nav-top-link').click()
+    //             }
+    //         })
+    // })
+
+    //Reload page
+    it('Reload page', () => {
+        cy.reload()
     })
 
     //Check if at least 1 job is posted
