@@ -7,7 +7,7 @@ describe('Jobs list page test', () => {
     })
 
     // Go to Jobs list page
-    it('Load home page', () => {
+    it('Go to Jobs list page', () => {
         cy.get('#menu-item-125914 > .nav-top-link').click()
         cy.url().should('eq', 'https://www.emploidakar.com/offres-demploi-au-senegal/')
     })
