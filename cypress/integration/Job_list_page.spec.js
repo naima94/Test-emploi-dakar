@@ -134,4 +134,52 @@ describe('Jobs list page test', () => {
     it('Job publish date is visible', () => {
         cy.get('.job_listings> li .date > time').first().should('be.visible')
     })
+
+    //Check CV sample link
+    it('CV sample link', () => {
+        cy.get('strong > a').should('be.visible')
+            .should('have.text', '11 Exemples de demande d’emploi pour décrocher votre prochain job')
+            .should('have.attr', 'href', 'https://www.emploidakar.com/demande-d-emploi/')
+    })
+
+    it('Share links for social medias', () => {
+
+        cy.get('.col-inner > .social-icons > .facebook').should("have.attr", "href", "https://www.facebook.com/sharer.php?u=https://www.emploidakar.com/offres-demploi-au-senegal/")
+
+        cy.get('.col-inner > .social-icons > .twitter').should("have.attr", "href", "https://twitter.com/share?url=https://www.emploidakar.com/offres-demploi-au-senegal/")
+
+        cy.get('.col-inner > .social-icons > .email').should("have.attr", "href", "mailto:enteryour@addresshere.com?subject=Offre%20d%26rsquo%3BEmploi%20S%C3%A9n%C3%A9gal%20%26%238211%3B%20Offre%20d%26rsquo%3BEmploi%20Dakar&body=Check%20this%20out:%20https://www.emploidakar.com/offres-demploi-au-senegal/")
+
+        cy.get('.pinterest').should("have.attr", "href", "https://pinterest.com/pin/create/button/?url=https://www.emploidakar.com/offres-demploi-au-senegal/&media=https://www.emploidakar.com/wp-content/uploads/2020/01/Talent_5430a808fddffd3a1c3509dc8493cd4d-1024x653.jpg&description=Offre%20d%26rsquo%3BEmploi%20S%C3%A9n%C3%A9gal%20%26%238211%3B%20Offre%20d%26rsquo%3BEmploi%20Dakar")
+
+        cy.get('.col-inner > .social-icons > .linkedin').should("have.attr", "href", "https://www.linkedin.com/shareArticle?mini=true&url=https://www.emploidakar.com/offres-demploi-au-senegal/&title=Offre%20d%26rsquo%3BEmploi%20S%C3%A9n%C3%A9gal%20%26%238211%3B%20Offre%20d%26rsquo%3BEmploi%20Dakar")
+    })
+
+    //Check Voir aussi links
+
+    it('Voir aussi ONG link', () => {
+        cy.get('.col-inner > :nth-child(9) > a').should('be.visible')
+            .should('have.text', 'Liste des ONG qui recrutent au Sénégal')
+            .should('have.attr', 'href', 'https://www.emploidakar.com/liste-des-ong-qui-recrutent-au-senegal/')
+    })
+
+    it('Voir aussi Entreprises link', () => {
+        cy.get('.col-inner > :nth-child(10) > a').should('be.visible')
+            .should('have.text', 'Les entreprises qui recrutent au Sénégal')
+            .should('have.attr', 'href', 'https://www.emploidakar.com/les-entreprises-qui-recrutent-au-senegal/')
+    })
+
+    it('Voir aussi Cand Spont link', () => {
+        cy.get('.col-inner > :nth-child(11) > a').should('be.visible')
+            .should('have.text', 'Candidature Spontanée à plus de 60 entreprises au Sénégal')
+            .should('have.attr', 'href', 'https://www.emploidakar.com/candidature-spontanee-a-plus-de-60-entreprises-au-senegal/')
+    })
+
+    it('Voir aussi Call center link', () => {
+        cy.get('.col-inner > :nth-child(12) > a').should('be.visible')
+            .should('have.text', 'Recrutement Centre d’Appels au Sénégal')
+            .should('have.attr', 'href', 'https://www.emploidakar.com/recrutement-centre-dappels-au-senegal/')
+    })
+
+
 })
