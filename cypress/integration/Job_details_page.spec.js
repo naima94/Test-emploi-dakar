@@ -18,18 +18,49 @@ describe('Job details page test', () => {
         cy.get('.job_listings> li').should('be.visible')
     })
 
-    // Select first post details
-    it('Load first job posted', () => {
+    // Select first post to open details
+    it('Load first job page', () => {
         cy.get('.job_listings> li').first().click()
     })
 
-    // it('Job offer details test', () => {
-    //     // Go to job page
-    //     cy.get('#menu-item-125914 > .nav-top-link').click()
-    //     cy.get('li.job_listing').first().click()
-    //     cy.contains('Postuler')
-    //         .should('contain', 'Postuler')
-    //         .should('be.visible')
+    it('Job title visibility', () => {
+        cy.get('.entry-title').should('be.visible')
+    })
+
+    it('Job type visibility', () => {
+        cy.get('.job-type').should('be.visible')
+    })
+
+    it('Job location visibility', () => {
+        cy.get('.location').should('be.visible')
+    })
+
+    it('Job company name visibility', () => {
+        cy.get('.name').should('be.visible')
+    })
+
+    it('Alert link', () => {
+        cy.get('.job-manager-single-alert-link > a').should('be.visible')
+            .should('have.text', "M'envoyer des offres similaires par mail")
+            .should('have.attr', 'href').and('include', 'https://www.emploidakar.com/gerer-mes-alertes-emploi-notifications/')
+    })
+
+
+    // it('Job categorie visibility', () => {
+    //     cy.get('.job-listing-meta > a').should('be.visible')
     // })
+
+
+
+    it('Job description visibility', () => {
+        cy.get('.job_description').should('be.visible')
+    })
+
+    it('Application link visibility', () => {
+        cy.contains('Postuler')
+            .should('be.visible')
+    })
+
+
 
 })
