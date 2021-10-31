@@ -181,5 +181,10 @@ describe('Jobs list page test', () => {
             .should('have.attr', 'href', 'https://www.emploidakar.com/recrutement-centre-dappels-au-senegal/')
     })
 
+    //Scroll Top button test
+    it('Scroll Top', () => {
+        cy.get('#top-link').scrollIntoView().should('be.visible')
+            .should('have.attr', 'href', '#top')
+    })
 
 })

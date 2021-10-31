@@ -121,4 +121,10 @@ describe('Footer UI test', () => {
             .should("have.attr", "href", "https://www.emploidakar.com/assistance-et-conseils/")
     })
 
+    //Scroll Top button test
+    it('Scroll Top', () => {
+        cy.get('#top-link').scrollIntoView().should('be.visible')
+            .should('have.attr', 'href', '#top')
+    })
+
 })
