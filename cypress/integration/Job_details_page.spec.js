@@ -39,18 +39,9 @@ describe('Job details page test', () => {
         cy.get('.name').should('be.visible')
     })
 
-    it('Alert link', () => {
-        cy.get('.job-manager-single-alert-link > a').should('be.visible')
-            .should('have.text', "M'envoyer des offres similaires par mail")
-            .should('have.attr', 'href').and('include', 'https://www.emploidakar.com/gerer-mes-alertes-emploi-notifications/')
-    })
-
-
     // it('Job categorie visibility', () => {
     //     cy.get('.job-listing-meta > a').should('be.visible')
     // })
-
-
 
     it('Job description visibility', () => {
         cy.get('.job_description').should('be.visible')
@@ -61,6 +52,26 @@ describe('Job details page test', () => {
             .should('be.visible')
     })
 
+    it('Alert link', () => {
+        cy.get('.job-manager-single-alert-link > a').should('be.visible')
+            .should('have.text', "M'envoyer des offres similaires par mail")
+            .should('have.attr', 'href').and('include', 'https://www.emploidakar.com/gerer-mes-alertes-emploi-notifications/')
+    })
+
+    // ------ NEWSLETTER  ------
+
+    it('Newsletters section', () => {
+        cy.get('.message-box-bg-overlay').should('be.visible')
+
+        cy.get('.col-inner').first().should('be.visible')
+            .should('have.text', " Recevez les meilleures opportunités par mail.")
+    })
+
+    it('Newsletter button', () => {
+        cy.get('.col-inner > .button').should('be.visible')
+            .should("have.attr", "href", "https://www.emploidakar.com/newsletter-2/")
+        cy.get('.col-inner > .button > span').should('have.text', "Je m'abonne")
+    })
 
 
 })
