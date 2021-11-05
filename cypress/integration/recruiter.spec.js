@@ -1,13 +1,9 @@
 /// <reference types="cypress" />
 
 describe('emploi-dakar test', () => {
-    it('recruiter sign test', () => {
-        // Go to the web site home page
+    beforeEach('Visit web site qnd go to the recruiter page', () => {
         cy.visit('https://www.emploidakar.com/')
-    })
 
-    //Go to recruiter page
-    it('recruiter page load', () => {
         cy.get('#menu-item-11059 > .nav-top-link').click()
     })
 
@@ -64,6 +60,38 @@ describe('emploi-dakar test', () => {
     it('label 10', () => {
         cy.get('.fieldset-application > label').should('be.visible')
             .should('have.text', 'Email/URL de candidature')
+    })
+
+    it('Company title', () => {
+        cy.get('h2').should('be.visible')
+            .should('have.text', 'Détails de  société')
+    })
+
+    it('label 11', () => {
+        cy.get('.fieldset-company_name > label').should('be.visible')
+            .should('have.text', "Nom de l'entreprise")
+    })
+
+    it('label 12', () => {
+        cy.get('.fieldset-company_website > label').should('be.visible')
+            .should('have.text', 'Site (optionnel)')
+    })
+
+    it('label 13', () => {
+        cy.get('.fieldset-company_tagline > label').should('be.visible')
+            .should('have.text', 'Slogan (optionnel)')
+    })
+
+    it('label 14', () => {
+        cy.get('.fieldset-company_logo > label').should('be.visible')
+            .should('have.text', 'Logo (optionnel)')
+    })
+
+    // Sign inh
+
+    it('Sign in', () => {
+        cy.get('#create_account_email').should('be.visible')
+            .type('darkylouve@gmail.com{enter}')
     })
 
 })
